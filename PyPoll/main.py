@@ -32,7 +32,7 @@ with open(poll_csv) as csvfile:
         candidate_vote = candidates.count(x)
         vote_count.append(candidate_vote)
        
-        percentvote = (candidate_vote/vote)*100
+        percentvote = round((candidate_vote/vote)*100,2)
 
         vote_percent.append(percentvote)
         
@@ -49,7 +49,7 @@ with open('Analysis.txt', 'w') as text:
     text.write("Total Vote: " + str(vote)+ "\n")
     text.write("---------------------------------------\n")
     for i in range(len(set(candidate))):
-        text.write(candidate[i] + ": " + str(vote_percent[i]) +"% (" + str(vote_count[i]) + ") " + "\n" )
+        text.write(candidate[i] + ": " + (str(vote_percent[i])) +"% (" + str(vote_count[i]) + ") " + "\n" )
     text.write("---------------------------------------\n")
     text.write("The winner is: " + winner + "\n")
     text.write("---------------------------------------\n")
